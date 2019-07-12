@@ -15,4 +15,9 @@ public class HelloController {
     public String sayHello() {
         return "Hello World from Jenkins!";
     }
+
+    @GetMapping("/health")
+    public String healthCheck() {
+        return "Heart Beat running fine :)";
+    }
 }
