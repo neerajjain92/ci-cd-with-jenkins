@@ -49,3 +49,8 @@ applications:
   memory: 800m
   path: target/ci-cd-with-jenkins-0.0.1-SNAPSHOT.jar
 ```
+
+### Plugin used inside Jenkins
+
+ 1) [Pipeline Maven Plugin](https://wiki.jenkins.io/display/JENKINS/Pipeline+Maven+Plugin)
+ 2) [Embeddable Build Status Plugin](https://wiki.jenkins.io/display/JENKINS/Embeddable+Build+Status+Plugin)
