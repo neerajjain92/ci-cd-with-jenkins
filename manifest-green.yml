@@ -1,0 +1,6 @@
+---
+applications:
+  - name: ci-cd-green
+    instances: 1
+    memory: 800m
+    path: target/ci-cd-green-0.0.1-SNAPSHOT.jar

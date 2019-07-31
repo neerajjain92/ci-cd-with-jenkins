@@ -1,0 +1,6 @@
+---
+applications:
+  - name: ci-cd-blue
+    instances: 1
+    memory: 800m
+    path: target/ci-cd-blue-0.0.1-SNAPSHOT.jar

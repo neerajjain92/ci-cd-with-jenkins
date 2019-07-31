@@ -54,3 +54,38 @@ applications:
 
  1) [Pipeline Maven Plugin](https://wiki.jenkins.io/display/JENKINS/Pipeline+Maven+Plugin)
  2) [Embeddable Build Status Plugin](https://wiki.jenkins.io/display/JENKINS/Embeddable+Build+Status+Plugin)
+```
+
+# BLUE GREEN Deployment on Cloud Foundry
+---
+
+- In order to do blue-green deployment, create 2 artifacts one with `ci-cd-blue` and another `ci-cd-green`
+
+Following Steps will deploy Blue/Green war file to Cloud Foundry
+
+```
+1) Login to Cloud Foundry ==> cf login
+2) Check which apps are running ==> cf apps
+3) Deploy app in cloud foundry ==> cf push -f manifest-blue.yml/manifest-green.yml
+``` 
+
+#### Let's map a generic route https://ci-cd-production.cfapps.io/version to these blue and green 
+
+```
+ cf map-route ci-cd-green cfapps.io --hostname ci-cd-production
+ cf map-route ci-cd-blue cfapps.io --hostname ci-cd-production
+```
+
+- Now both blue and green instance are being pointed out by `ci-cd-production` and since Cloud Foundry 
+GO Router implements Software Load balancer and uses RoundRobin out of the box to distribute load.
+So we see output from blue and green interchangeably
+
+Now since our Green features are good to go in production for all set of users, let's just remove blue 
+mapping altogether from ci-cd-production route.
+
+```
+cf unmap-route ci-cd-blue cfapps.io --hostname ci-cd-production
+``` 
+
+Now production only points to green instance, We have successfully deployed new App version with No downtime required,
+using Blue-Green Deployment strategy.
