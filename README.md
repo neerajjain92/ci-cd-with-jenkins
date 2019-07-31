@@ -54,7 +54,7 @@ applications:
 
  1) [Pipeline Maven Plugin](https://wiki.jenkins.io/display/JENKINS/Pipeline+Maven+Plugin)
  2) [Embeddable Build Status Plugin](https://wiki.jenkins.io/display/JENKINS/Embeddable+Build+Status+Plugin)
-```
+
 
 # BLUE GREEN Deployment on Cloud Foundry
 ---
