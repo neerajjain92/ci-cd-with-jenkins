@@ -57,7 +57,7 @@ applications:
 
 
 # BLUE GREEN Deployment on Cloud Foundry
----
+
 
 - In order to do blue-green deployment, create 2 artifacts one with `ci-cd-blue` and another `ci-cd-green`
 
